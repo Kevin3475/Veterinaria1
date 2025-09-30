@@ -191,6 +191,55 @@ public class Veterinaria {
 
         return costoFinal;
     }
+    public Dueno[] obtenerDuenosFrecuentes() {
+        Dueno[] duenosOrdenados = listDuenos.clone();
+
+        for (int i = 0; i < duenosOrdenados.length - 1; i++) {
+            for (int j = i + 1; j < duenosOrdenados.length; j++) {
+                if (duenosOrdenados[i] != null && duenosOrdenados[j] != null) {
+                    int visitasI = contarMascotasDeDueno(duenosOrdenados[i]);
+                    int visitasJ = contarMascotasDeDueno(duenosOrdenados[j]);
+
+                    if (visitasJ > visitasI) {
+                        Dueno temp = duenosOrdenados[i];
+                        duenosOrdenados[i] = duenosOrdenados[j];
+                        duenosOrdenados[j] = temp;
+                    }
+                }
+            }
+        }
+        return duenosOrdenados;
+    }
+
+    public int contarMascotasDeDueno(Dueno dueno) {
+        int contador = 0;
+        for (Mascota mascota : listMascotas) {
+            if (mascota != null && mascota.getDueno() != null && mascota.getDueno().getId().equals(dueno.getId())) {
+                contador++;
+            }
+        }
+        return contador;
+    }
+    public int obtenerNumeroVisitas(Dueno dueno) {
+        return contarMascotasDeDueno(dueno);
+    }
+
+    public Dueno obtenerDuenoMasFrecuente() {
+        Dueno mejor = null;
+        int maxVisitas = -1;
+
+        for (Dueno dueno : listDuenos) {
+            if (dueno != null) {
+                int visitas = contarMascotasDeDueno(dueno);
+                if (visitas > maxVisitas) {
+                    maxVisitas = visitas;
+                    mejor = dueno;
+                }
+            }
+        }
+        return mejor;
+    }
+
 }
 
 
