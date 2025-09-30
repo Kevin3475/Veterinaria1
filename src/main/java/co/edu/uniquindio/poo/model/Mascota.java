@@ -49,7 +49,7 @@ public class Mascota {
     public void getId(String id){
         this.id = id;
     }
-    public Dueno getDueño() {
+    public Dueno getDueno() {
         return dueno;
     }
 

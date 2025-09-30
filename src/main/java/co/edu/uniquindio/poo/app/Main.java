@@ -25,6 +25,8 @@ public class Main {
                     9. Actualizar Dueño
                     10. Eliminar Dueño
                     11. Calcular costo de consulta
+                    12. Dueños que más han visitado la veterinaria
+                    13. Mostrar el dueño que más ha visitado
                     0. Salir
                     """;
 
@@ -132,6 +134,27 @@ public class Main {
                     } else {
                         double costo = vet.calcularCostoConsulta(mascota);
                         JOptionPane.showMessageDialog(null, "El costo de la consulta para " + mascota.getNombre() + " es: $" + costo);
+                    }
+                }
+                case 12 -> {
+                    Dueno[] listaOrdenada = vet.obtenerDuenosFrecuentes();
+                    StringBuilder sb = new StringBuilder("Dueños con más visitas (según mascotas registradas):\n");
+                    for (Dueno d : listaOrdenada) {
+                        if (d != null) {
+                            int visitas = vet.contarMascotasDeDueno(d);
+                            sb.append(d.getNombre())
+                                    .append(" - Visitas: ").append(visitas).append("\n");
+                        }
+                    }
+                    JOptionPane.showMessageDialog(null, sb.toString());
+                }
+                case 13 -> {
+                    Dueno top = vet.obtenerDuenoMasFrecuente();
+                    if (top == null) {
+                        JOptionPane.showMessageDialog(null, "No hay dueños registrados.");
+                    } else {
+                        int visitas = vet.obtenerNumeroVisitas(top);
+                        JOptionPane.showMessageDialog(null, "El dueño con más visitas es: " + top.getNombre() + " con " + visitas + " visitas.");
                     }
                 }
                 case 0 -> JOptionPane.showMessageDialog(null, "Saliendo del programa...");
