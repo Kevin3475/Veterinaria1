@@ -1,8 +1,6 @@
 package co.edu.uniquindio.poo.app;
 
-import co.edu.uniquindio.poo.model.Veterinaria;
-import co.edu.uniquindio.poo.model.Mascota;
-import co.edu.uniquindio.poo.model.Dueno;
+import co.edu.uniquindio.poo.model.*;
 
 import javax.swing.JOptionPane;
 
@@ -44,7 +42,7 @@ public class Main {
 
             switch (opcion) {
                 case 1 -> {
-                    // ✅ Registrar Mascota (requiere dueño)
+                    // ✅ Registrar Perro(requiere dueño)
                     String idDueno = JOptionPane.showInputDialog("Ingrese el ID del dueño de la mascota:");
                     Dueno dueno = vet.obtenerDueno(idDueno);
 
@@ -54,13 +52,26 @@ public class Main {
                         String nombre = JOptionPane.showInputDialog("Nombre de la mascota:");
                         String especie = JOptionPane.showInputDialog("Especie:");
                         String raza = JOptionPane.showInputDialog("Raza:");
-                        int edad = Integer.parseInt(JOptionPane.showInputDialog("Edad:"));
-                        String idMascota = JOptionPane.showInputDialog("ID de la mascota:");
+                        int valor = Integer.parseInt(JOptionPane.showInputDialog("Edad:"));
+                        Edad edad;
 
-                        boolean ok = vet.almacenarMascota(nombre, especie, raza, edad, idMascota, dueno);
-                        JOptionPane.showMessageDialog(null, ok ? "Mascota registrada con éxito" : "Error: Ya existe una mascota con ese ID o no hay espacio.");
+                        if (valor < 2) {
+                            edad = Edad.CACHORRO;
+                        } else {
+                            edad = Edad.ADULTO;
+                        }
+
+                        System.out.println("La categoría es: " + edad);
                     }
+
+                    String idMascota = JOptionPane.showInputDialog("ID de la mascota:");
+
+                    boolean ok = vet.almacenarPerro(nombre,especie,raza,edad, idMascota, dueno);
+                    JOptionPane.showMessageDialog(null, ok ? "Mascota registrada con éxito" : "Error: Ya existe una mascota con ese ID o no hay espacio.");
                 }
+
+                }
+
                 case 2 -> {
                     Mascota[] lista = vet.obtenerListaMascotas();
                     StringBuilder sb = new StringBuilder("Lista de Mascotas:\n");

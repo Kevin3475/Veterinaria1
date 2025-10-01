@@ -6,13 +6,15 @@ public class Dueno {
     private String telefono;
     private String direccion;
     private String id;
+    private int fidelidadClinica;
     private Mascota[] mascotas;
 
-    public Dueno(String nombre,String telefono,String direccion,String id){
+    public Dueno(String nombre,String telefono,String direccion,String id,int fidelidadClinica){
         this.nombre = nombre;
         this.telefono = telefono;
         this.direccion = direccion;
         this.id = id;
+        this.fidelidadClinica = fidelidadClinica;
         this.mascotas = new Mascota[3];
     }
     public String getNombre(){
@@ -27,6 +29,9 @@ public class Dueno {
     public String getId(){
         return id;
     }
+    public int getFidelidadClinica(){
+        return fidelidadClinica;
+    }
     public void setNombre(String nombre){
         this.nombre = nombre;
     }
@@ -39,9 +44,12 @@ public class Dueno {
     public void setId(String id){
         this.id = id;
     }
+    public void setFidelidadClinica(int fidelidadClinica){
+        this.fidelidadClinica = fidelidadClinica;
+    }
 
     @Override
     public String toString(){
-        return "Dueno: {\n Nombre: " + nombre + "\n Telefono: " + telefono + "\n Direccion: " + direccion + "\n Id: " + id + "}\n";
+        return "Dueno: {\n Nombre: " + nombre + "\n Telefono: " + telefono + "\n Direccion: " + direccion + "\n Id: " + id + "\n Puntos de fidelidad: " + fidelidadClinica + "\n" +"}";
     }
 }

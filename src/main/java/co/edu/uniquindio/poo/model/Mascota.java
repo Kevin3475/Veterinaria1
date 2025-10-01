@@ -1,20 +1,20 @@
 package co.edu.uniquindio.poo.model;
 
-public class Mascota {
+public abstract class  Mascota {
 
     private String nombre;
-    private String especie;
     private String raza;
-    private int edad;
+    private Edad edad;
+    private double pesoKg;
     private String id;
     private Dueno dueno;
 
 
-    public Mascota(String nombre,String especie,String raza,int edad,String id,Dueno dueno){
+    public Mascota(String nombre,String raza,Edad edad,double pesoKg,String id,Dueno dueno){
         this.nombre = nombre;
-        this.especie = especie;
         this.raza = raza;
         this.edad = edad;
+        this.pesoKg = pesoKg;
         this.id = id;
         this.dueno = dueno;
     }
@@ -22,14 +22,15 @@ public class Mascota {
     public String getNombre(){
         return nombre;
     }
-    public String getEspecie(){
-        return especie;
-    }
+
     public String getRaza(){
         return raza;
     }
-    public int getEdad(){
+    public Edad getEdad(){
         return edad;
+    }
+    public double getPesoKg(){
+        return pesoKg;
     }
     public String getId(){
         return id;
@@ -37,14 +38,14 @@ public class Mascota {
     public void setNombre (String nombre){
         this.nombre = nombre;
     }
-    public void setEspecie(String especie){
-        this.especie = especie;
-    }
     public void setRaza(String raza){
         this.raza = raza;
     }
-    public void setEdad(int edad){
+    public void setEdad(Edad edad){
         this.edad = edad;
+    }
+    public void setPesoKg(double pesoKg){
+        this.pesoKg = pesoKg;
     }
     public void getId(String id){
         this.id = id;
@@ -55,7 +56,11 @@ public class Mascota {
 
     @Override
     public String toString(){
-        return "Mascota {\n Nombre: " + nombre + "\n Especie: " + especie + "\n Raza: " + raza + "\n Edad: " + edad + "\n Id: " + id + "\n Dueño: " + dueno.getNombre() + "\n" + "}";
+        return "Mascota {\n Nombre: " + nombre + "\n Raza: " + raza + "\n Edad: " + edad + "\n Peso en kilos: " + pesoKg + "\n Id: " + id + "\n Dueño: " + dueno.getNombre() + "\n" + "}";
     }
+
+    public abstract double getCostoExtraEspecie();
+
+    public abstract Especie getEspecie();
 
 }
