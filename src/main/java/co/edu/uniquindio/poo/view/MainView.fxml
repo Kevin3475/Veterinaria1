@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="co.edu.uniquindio.poo.viewController.MainViewController">
+    <top>
+        <Label text="Sistema Veterinaria" style="-fx-font-size: 24px; -fx-padding: 10px;"/>
+    </top>
+    <center>
+        <VBox spacing="10" alignment="CENTER">
+            <Button text="Agregar Dueño" fx:id="btnAgregarDueno" prefWidth="200"/>
+            <Button text="Agregar Mascota" fx:id="btnAgregarMascota" prefWidth="200"/>
+            <Button text="Listar Mascotas" fx:id="btnListarMascotas" prefWidth="200"/>
+            <Button text="Listar Dueños" fx:id="btnListarDuenos" prefWidth="200"/>
+        </VBox>
+    </center>
+</BorderPane>

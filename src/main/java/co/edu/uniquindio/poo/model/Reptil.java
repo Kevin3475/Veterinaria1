@@ -1,11 +1,11 @@
 package co.edu.uniquindio.poo.model;
 
-public class Reptil extends Mascota{
+public class Reptil extends Mascota {
 
     Especie especie;
 
-    public Reptil(String nombre,Especie especie,String raza,Edad edad,double pesoKg,String id,Dueno dueno){
-        super(nombre,raza,edad,pesoKg,id,dueno);
+    public Reptil(String nombre, Especie especie, String raza, Edad edad, double pesoKg, String id, Dueno dueno) {
+        super(nombre, raza, edad, pesoKg, id, dueno);
 
         this.especie = especie;
     }

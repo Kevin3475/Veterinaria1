@@ -374,7 +374,6 @@ public class Veterinaria {
     }
 
 
-
     public boolean eliminarDueno(String id){
         int indexDueno = obtenerPosicionDueno(id);
 
@@ -487,9 +486,6 @@ public class Veterinaria {
 
         return fechaActual.plusMonths(mesesProx);
     }
-
-
-
 }
 
 
